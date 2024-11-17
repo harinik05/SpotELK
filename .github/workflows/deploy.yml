@@ -29,6 +29,9 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{env.AWS_REGION}}
     
+    - name: Verify AWS credentials
+      run: aws sts get-caller-identity
+    
     - name: Install kubectl
       run: |
         curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
@@ -52,17 +55,17 @@ jobs:
     - name: Update kube config
       run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
     
-    - name: Check kubeconfig file
+    - name: Verify Kubeconfig setup
       run: |
         cat ~/.kube/config
 
     - name: Verify Kubernetes context
       run: |
         kubectl config current-context
-
-    - name: Verify Kubernetes connectivity
+    
+    - name: Verify Kubernetes connectivity with debug
       run: |
-        kubectl get nodes
+        kubectl get nodes --v=8
     
     - name: Update Image tag
       env:       
