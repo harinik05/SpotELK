@@ -55,6 +55,10 @@ jobs:
       run: |
         cat ~/.kube/config
 
+    - name: Verify kubeconfig context
+      run: |
+        kubectl config get-contexts
+    
     - name: Update Image tag
       env:       
         IMAGE_TAG: ${{ steps.commit.outputs.short }}
@@ -72,6 +76,7 @@ jobs:
     - name: Deploy helm chart
       uses: WyriHaximus/github-action-helm3@v3
       with:
-        exec: helm upgrade --install docker-cicd helm-chart/docker-cicd/
+        exec: |
+          helm upgrade --install docker-cicd helm-chart/docker-cicd/
       env:
         KUBECONFIG: $HOME/.kube/config
