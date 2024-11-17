@@ -55,7 +55,7 @@ jobs:
         sed -i.bak "s|username|$USER_NAME|g" helm-chart/docker-cicd/values.yaml && \
         sed -i.bak "s|imagename|$IMAGE_NAME|g" helm-chart/docker-cicd/values.yaml
     - name: Set kubectl context
-      run: kubectl config use-context arn:aws:iam::720479364235:role/cicd-cluster-cluster-20241117041532133900000001
+      run: kubectl config use-context arn:aws:iam::720479364235:role/cicd-cluster
     - name: Deploy helm chart
       uses: WyriHaximus/github-action-helm3@v3
       with:
