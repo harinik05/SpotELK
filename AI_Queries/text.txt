@@ -1,0 +1,1 @@
+python QueryTool.py kibanaQL.json "Generate a KQL query to find logs where the kubernetes namespace is 'default' and the log level is 'info'"

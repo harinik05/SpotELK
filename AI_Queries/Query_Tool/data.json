@@ -1,0 +1,41 @@
+{
+    "categories": {
+      "books": [
+        {
+          "title": "1984",
+          "author": "Harper Lee",
+          "year": 1949
+        },
+        {
+          "title": "To Kill a Mockingbird",
+          "author": "Harper Lee",
+          "year": 1960
+        }
+      ],
+      "movies": [
+        {
+          "title": "The Shawshank Redemption",
+          "director": "Frank Darabont",
+          "year": 1994
+        },
+        {
+          "title": "The Godfather",
+          "director": "Francis Ford Coppola",
+          "year": 1972
+        }
+      ],
+      "music": [
+        {
+          "title": "Bohemian Rhapsody",
+          "artist": "Queen",
+          "year": 1975
+        },
+        {
+          "title": "Imagine",
+          "artist": "John Lennon",
+          "year": 1971
+        }
+      ]
+    }
+  }
+  

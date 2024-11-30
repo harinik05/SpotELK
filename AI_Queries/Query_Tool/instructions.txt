@@ -1,0 +1,9 @@
+how do i use the query tool that is being provided to me?
+python main.py data.json books --author="Harper Lee"
+
+python main.py data.json movies --director="Francis Ford Coppola"
+
+python main.py data.json music --year=1975
+
+kubernetes.namespace_name: "harinisbapp" AND message: "*product*"
+

@@ -1,0 +1,8 @@
+what do i need for this to work?
+
+
+1. Get some common statistics for how you can use this query language
+in different environments and with respect to your library
+2. Do some research into the LLM we'll be using 
+3. Create some way of classifying them- command line tool in python that you'll be able to use 
+4. Find a way to display them on some kind of a page to see the list of things you'll be needing 

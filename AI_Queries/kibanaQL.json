@@ -1,0 +1,72 @@
+[
+        {
+        "timestamp": "2024-11-24T12:45:00Z",
+        "log_level": "info",
+        "message": "Pod started successfully",
+        "pod_name": "nginx-deployment-abc123",
+        "namespace": "default",
+        "container_name": "nginx",
+        "node_name": "k8s-node-01",
+        "container_id": "abcd1234efgh5678",
+        "pod_status": "Running",
+        "kubernetes_version": "1.23.4",
+        "node_ip": "192.168.1.5"
+    },
+    {
+        "timestamp": "2024-11-24T12:50:00Z",
+        "log_level": "error",
+        "message": "Error executing query",
+        "database_name": "my_database",
+        "instance_id": "rds-instance-001",
+        "query": "SELECT * FROM users WHERE age < 25",
+        "error_code": "SQL1234",
+        "error_message": "Syntax error in SQL statement",
+        "query_duration_ms": 120,
+        "rds_version": "12.5.0",
+        "user_name": "admin",
+        "client_ip": "10.0.0.3"
+    },
+
+    {
+        "timestamp": "2024-11-24T12:55:00Z",
+        "log_level": "info",
+        "message": "Lambda function execution started",
+        "aws_service": "AWS Lambda",
+        "function_name": "process_data_function",
+        "execution_time_ms": 200,
+        "region": "us-west-2",
+        "request_id": "12345678-1234-1234-1234-1234567890ab"
+    },
+    {
+        "timestamp": "2024-11-24T13:00:00Z",
+        "log_level": "warning",
+        "message": "File uploaded to S3 bucket",
+        "aws_service": "Amazon S3",
+        "bucket_name": "logs-bucket",
+        "file_name": "data-file-123.csv",
+        "file_size_bytes": 1048576,
+        "region": "us-west-2"
+    },
+    {
+        "timestamp": "2024-11-24T13:05:00Z",
+        "log_level": "error",
+        "message": "EC2 instance failed to start",
+        "aws_service": "Amazon EC2",
+        "instance_id": "i-0abc1234def567890",
+        "error_code": "InstanceLimitExceeded",
+        "region": "us-west-2",
+        "client_ip": "192.168.100.15"
+    },
+    {
+        "timestamp": "2024-11-24T13:10:00Z",
+        "log_level": "info",
+        "message": "CloudWatch alarm triggered",
+        "aws_service": "Amazon CloudWatch",
+        "alarm_name": "HighCPUUsage",
+        "metric_name": "CPUUtilization",
+        "threshold": 80,
+        "region": "us-west-2"
+    }
+
+]
+

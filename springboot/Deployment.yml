@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sbwebappdeployment
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: sb-web-app
+      version: v1
+      color: blue
+  template:
+    metadata:
+      name: sbwebapppod
+      labels:
+        app: sb-web-app
+        version: v1
+        color: blue
+    spec:
+      containers:
+        - name: sbwebappcontainer
+          image: lettucegirl/sb-logger-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /health/readiness
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health/liveness
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 15
+          startupProbe:
+            httpGet:
+              path: /health/startup
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 15
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sbappsvc
+  namespace: harinisbapp
+spec:
+  type: LoadBalancer
+  selector:
+    app: sb-web-app #POD label
+  ports:
+    - port: 80
+      targetPort: 8080
+...

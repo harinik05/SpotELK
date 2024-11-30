@@ -1,0 +1,15 @@
+here are the commands to run the kubernetes thing:
+
+1. deploy the app to some kind of ECR or docker hub 
+docker push lettucegirl/sb-logger-app
+docker build --platform linux/amd64 -t lettucegirl/sb-logger-app:latest .
+docker push lettucegirl/sb-logger-app:latest
+
+docker inspect --format '{{.Architecture}}' openjdk:8
+docker inspect --format '{{.Architecture}}' lettucegirl/sb-logger-app
+must return amd64
+
+eksctl create cluster --name cqpocsefkdemo --node-type t2.large --nodes 3 --nodes-min 3 --nodes-max 5 --region us-east-1 
+eksctl delete cluster --name cqpocsefkdemo --region us-east-1
+
+-- deleting the cluster
