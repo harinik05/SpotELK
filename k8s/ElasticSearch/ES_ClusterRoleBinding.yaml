@@ -1,17 +1,17 @@
-kind: ClusterRoleBinding
+kind: ClusterRoleBinding  # Associates the cluster role with a subject
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   namespace: efklog
   name: elasticsearch-logging
   labels:
-    k8s-app: elasticsearch-logging
+    k8s-app: elasticsearch-logging # Label for org purposes
     addonmanager.kubernetes.io/mode: Reconcile
 subjects:
-- kind: ServiceAccount
-  name: elasticsearch-logging
+- kind: ServiceAccount # The service can get the endpoints, namespace, etc.
+  name: elasticsearch-logging # name of service account to bind
   namespace: efklog
-  apiGroup: ""
+  apiGroup: "" # api group for the subject
 roleRef:
-  kind: ClusterRole
-  name: elasticsearch-logging
+  kind: ClusterRole # kind of role that is being referenced 
+  name: elasticsearch-logging # name of cluster role being referred
   apiGroup: ""

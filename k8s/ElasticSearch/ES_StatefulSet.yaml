@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: StatefulSet   # Using stateful set for managing elasticsearch pods
+metadata:
+  name: elasticsearch-logging
+  namespace: efklog
+  labels:
+    k8s-app: elasticsearch-logging
+    version: v7.3.2 # version of elasticsearch container image
+    addonmanager.kubernetes.io/mode: Reconcile
+spec:
+  serviceName: elasticsearch-logging # service name
+  replicas: 2 # number of elastic replicas (pods)
+  selector:
+    matchLabels:
+      k8s-app: elasticsearch-logging # Match pods with label
+      version: v7.3.2
+  template:
+    metadata:
+      labels:
+        k8s-app: elasticsearch-logging # label for pod instances
+        version: v7.3.2
+    spec:
+      serviceAccountName: elasticsearch-logging # Use the defined service acount for the stateful set
+      containers:
+      - image: quay.io/fluentd_elasticsearch/elasticsearch:v7.3.2 # elastic search container image
+        name: elasticsearch-logging
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 500m # cpu limit for the container
+            memory: 3Gi # memory limit for the container
+          requests:
+            cpu: 100m # requested CPU for the container
+            memory: 1Gi # requested memory for the container
+        ports:
+        - containerPort: 9200 # external communication
+          name: db
+          protocol: TCP
+        - containerPort: 9300 # internal communication
+          name: transport
+          protocol: TCP
+        volumeMounts:
+        - name: elasticsearch-logging # Mount the volume
+          mountPath: /data # path to mount in 
+        env:
+        - name: "NAMESPACE"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace # retrieve the namespace dynamically
+      volumes:
+      - name: elasticsearch-logging # define the volume
+        emptyDir: {} # using empty dir volume
+      initContainers:
+      - image: alpine:3.6 # alpine image for init container
+        command: ["/sbin/sysctl", "-w", "vm.max_map_count=262144"] # system params
+        name: elasticsearch-logging-init # init container name
+        securityContext:
+          privileged: true # required for changing sysctl settings
