@@ -1,8 +1,7 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sbwebappdeployment
+  name: sbnoteappdeployment
 spec:
   replicas: 2
   strategy:
@@ -14,14 +13,14 @@ spec:
       color: blue
   template:
     metadata:
-      name: sbwebapppod
+      name: sbnoteapppod
       labels:
-        app: sb-web-app
+        app: sb-note-app
         version: v1
         color: blue
     spec:
       containers:
-        - name: sbwebappcontainer
+        - name: sbnoteappcontainer
           image: lettucegirl/sb-logger-app:latest
           imagePullPolicy: Always
           ports:
@@ -44,17 +43,3 @@ spec:
               port: 8080
             initialDelaySeconds: 10
             periodSeconds: 15
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: sbappsvc
-  namespace: harinisbapp
-spec:
-  type: LoadBalancer
-  selector:
-    app: sb-web-app #POD label
-  ports:
-    - port: 80
-      targetPort: 8080
-...

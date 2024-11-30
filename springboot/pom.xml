@@ -10,11 +10,11 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>in.harininotes</groupId>
-	<artifactId>Boot_Thymleaf_App</artifactId>
+	<artifactId>Harini_Notes_App</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>18_WebMVC_Thymleaf_App</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Harini_Notes_App</name>
+	<description>ELK Stack and Springboot Application</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

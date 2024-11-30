@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sbappsvc
+  namespace: harinisbapp
+spec:
+  type: LoadBalancer
+  selector:
+    app: sb-web-app #POD label
+  ports:
+    - port: 80
+      targetPort: 8080
