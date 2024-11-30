@@ -1,0 +1,16 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: elasticsearch-logging
+  labels:
+    k8s-app: elasticsearch-logging
+    addonmanager.kubernetes.io/mode: Reconcile
+rules:
+- apiGroups:
+  - ""  # Refers to the core K8s api group 
+  resources:
+  - "services" # resources this role can access
+  - "namespaces"
+  - "endpoints"
+  verbs:
+  - "get" # actions allowed
