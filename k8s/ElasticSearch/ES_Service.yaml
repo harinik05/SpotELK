@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service # Set of pods and policy attached to it (networking endpoint for accessing pods)
+metadata:
+  name: elasticsearch-logging
+  namespace: efklog
+  labels:
+    k8s-app: elasticsearch-logging #Identifies application part of the service
+    kubernetes.io/cluster-service: "true" # Indicates its part of the cluster
+    addonmanager.kubernetes.io/mode: Reconcile # Ensures resource is matching the desired state by control plane
+    kubernetes.io/name: "Elasticsearch" #Service name as tag
+spec:
+  ports:
+  - port: 9200 # Exposes port 9200 for ElasticSearch
+    protocol: TCP # Protocol for communication
+    targetPort: db # Maps this port to container's port db
+  selector: # Associates this service with pods having matching labels
+    k8s-app: elasticsearch-logging # Targets pod with this label
