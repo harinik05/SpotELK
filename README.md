@@ -21,6 +21,8 @@ from a custom Logger framework from Log4J class.
 Readiness, Liveness, and Startup probes were used in the application to monitor the its state, validate service availability, detect unresponsive components, and manage pod restarts to maintain reliability and performance
 
 ## Deployment Procedure
+![diagram](https://github.com/user-attachments/assets/622d1f93-3230-4164-aced-38f3bd00b119)
+
 1. Build and Push Docker Image
 ```
 docker build --platform linux/amd64 -t <image> .
