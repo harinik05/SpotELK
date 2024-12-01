@@ -1,23 +1,23 @@
-# 🍀 Clove App
+# 🍀 SpotELK AI App
 
 
 https://github.com/user-attachments/assets/31cec458-612c-4c3c-9531-720ab7a16b83
 
-Clove is your in-house CLI command tool that employs the power of AI to 
+SpotELK is your in-house CLI command tool that employs the power of AI to 
 extract Groq pattern insights from natural-language prompts and logs. It
 consists of Springboot application deployed on Amazon EKS, seamlessly 
 integrated with ELK stack to deliver AI-driven log querying. Initially, the logs
-from Clove are collected via FluentBit DaemonSets, processed and indexed in 
+from SpotELK are collected via FluentBit DaemonSets, processed and indexed in 
 an ElasticSearch stateful set, and visualized through Kibana's frontend. 
 
 ## 🩵 Functionalities and Features
 1. **AI-driven Log Querying**:
-Clove enables AI-powered CLI tool that allows user to craft natural language
+SpotELK enables AI-powered CLI tool that allows user to craft natural language
 prompts for generating Grok patterns, enabling faster analysis without 
 requiring complex querying knowledge. 
 
 2. **Centralized Application-level logs**:
-Logs from Clove application are collected via FluentBit, and essentially taken 
+Logs from SpotELK application are collected via FluentBit, and essentially taken 
 from a custom Logger framework from Log4J class. 
 
 3. **Health Checks and Integration with EKS**:
@@ -46,8 +46,8 @@ eksctl create cluster \
 
 3. Deploy the ELK Stack
 
-4. Deploy Clove Application
-Create and apply the clove-deployment.yaml file to deploy the app and expose it via a LoadBalancer service.
+4. Deploy SpotELK Application
+Create and apply the SpotELK-deployment.yaml file to deploy the app and expose it via a LoadBalancer service.
 
 5. Using AI CLI - Uses OpenAI API to retrieve responses based on generic KQL
 ```
