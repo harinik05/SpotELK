@@ -1,4 +1,4 @@
-# 🍀 SpotELK AI App
+# 🫎 SpotELK AI
 
 
 https://github.com/user-attachments/assets/31cec458-612c-4c3c-9531-720ab7a16b83
