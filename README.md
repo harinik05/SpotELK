@@ -1,5 +1,9 @@
 # Clove App
 
+
+https://github.com/user-attachments/assets/31cec458-612c-4c3c-9531-720ab7a16b83
+
+
 Clove is your in-house CLI command tool that employs the power of AI to 
 extract Groq pattern insights from natural-language prompts and logs. It
 consists of Springboot application deployed on Amazon EKS, seamlessly 
@@ -8,16 +12,16 @@ from Clove are collected via FluentBit DaemonSets, processed and indexed in
 an ElasticSearch stateful set, and visualized through Kibana's frontend. 
 
 ## Functionalities and Features
-1. AI-driven Log Querying 
+1. **AI-driven Log Querying **:
 Clove enables AI-powered CLI tool that allows user to craft natural language
 prompts for generating Grok patterns, enabling faster analysis without 
 requiring complex querying knowledge. 
 
-2. Centralized Application-level logs 
+2. **Centralized Application-level logs **:
 Logs from Clove application are collected via FluentBit, and essentially taken 
 from a custom Logger framework from Log4J class. 
 
-3. Health Checks and Integration with EKS
+3. **Health Checks and Integration with EKS**:
 Readiness, Liveness, and Startup probes were used in the application to monitor the its state, validate service availability, detect unresponsive components, and manage pod restarts to maintain reliability and performance
 
 ## Deployment Procedure
